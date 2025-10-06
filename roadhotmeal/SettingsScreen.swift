@@ -17,7 +17,7 @@ struct SettingsScreen: View {
     @EnvironmentObject private var store: DataStore
     @StateObject private var vm = SettingsViewModel()
 
-    // MARK: - Privacy (вся логика внутри этого файла)
+    // MARK: - Privacy
     private let policyURL = URL(string: "https://www.termsfeed.com/live/d195de36-524c-4950-905e-759c63a321bd")! // твоя страница политики
     @State private var showPrivacy = false
 
@@ -109,7 +109,8 @@ struct SettingsScreen: View {
                     }
                 case .failure(let error):
                     localErrorMessage = "Import canceled: \(error.localizedDescription)"
-                    // не показываем алерт на отмену
+                    
+                    
                 }
             }
             .alert(isPresented: $showErrorAlert) {
